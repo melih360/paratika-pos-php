@@ -21,7 +21,7 @@ class Paratika
         protected Account $account
     )
     {
-        $config = require './config/paratika.php';
+        $config = require __DIR__.'/../../config/paratika.php';
 
         $environment = $this->account->getIsTestMode() ? 'test' : 'prod';
 

@@ -21,11 +21,13 @@ class Paratika
         protected Account $account
     )
     {
-        $config = require 'config/paratika.php';
+        $config = require './config/paratika.php';
 
         $environment = $this->account->getIsTestMode() ? 'test' : 'prod';
 
         $this->url = $config[$environment]['url'];
+
+        var_dump($this->url);
     }
 
     public function prepare($transactionType, Order $order, Card $card, Customer $customer): void

@@ -12,6 +12,7 @@ class Order
         protected string $order_id,
         protected string $amount,
         protected string $currency,
+        protected string $installment,
         protected string $returnURL
     )
     {
@@ -63,6 +64,7 @@ class Order
             'MERCHANTPAYMENTID' => $this->order_id,
             'AMOUNT' => $this->amount,
             'CURRENCY' => $this->currency,
+            'INSTALLMENT' => $this->installment,
             'RETURNURL' => $this->returnURL,
             'ORDERITEMS' => urlencode(json_encode($this->orderItems))
         ];

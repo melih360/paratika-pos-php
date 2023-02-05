@@ -39,20 +39,45 @@ class Paratika
     /**
      * @throws RequestErrorException
      */
+    public function getFormData(): array
+    {
+        $sessionToken = $this->getSessionToken();
+
+        $gateway = $this->url . '/post/sale/' . $sessionToken;
+
+        $cardParameters = $this->card->getCardRequestParameters();
+        $orderParameters = $this->order->getOrderRequestParameters();
+
+        $inputs = [];
+        $inputs['cardOwner'] = $cardParameters['NAMEONCARD'];
+        $inputs['pan'] = $cardParameters['CARDPAN'];
+        $inputs['expiryMonth'] = explode('.', $cardParameters['CARDEXPIRY'])[0];
+        $inputs['expiryYear'] = explode('.', $cardParameters['CARDEXPIRY'])[1];
+        $inputs['cvv'] = $cardParameters['CARDCVV'];
+        $inputs['installmentCount'] = $orderParameters['INSTALLMENT'];
+
+        return [
+            'gateway' => $gateway,
+            'inputs' => $inputs
+        ];
+    }
+
     public function get3DFormData(): array
     {
         $sessionToken = $this->getSessionToken();
 
         $gateway = $this->url . '/post/sale3d/' . $sessionToken;
 
-        $parameters['ACTION'] = 'SALE';
-
-        $accountParameters = $this->account->getMerchantRequestParameters();
-        $customerParameters = $this->customer->getCustomerRequestParameters();
-        $orderParameters = $this->order->getOrderRequestParameters();
         $cardParameters = $this->card->getCardRequestParameters();
+        $orderParameters = $this->order->getOrderRequestParameters();
 
-        $inputs = array_merge($parameters, $accountParameters, $customerParameters, $cardParameters, $orderParameters);
+        $inputs = [];
+        $inputs['cardOwner'] = $cardParameters['NAMEONCARD'];
+        $inputs['pan'] = $cardParameters['CARDPAN'];
+        $inputs['expiryMonth'] = explode('.', $cardParameters['CARDEXPIRY'])[0];
+        $inputs['expiryYear'] = explode('.', $cardParameters['CARDEXPIRY'])[1];
+        $inputs['cvv'] = $cardParameters['CARDCVV'];
+        $inputs['installmentCount'] = $orderParameters['INSTALLMENT'];
 
         return [
             'gateway' => $gateway,

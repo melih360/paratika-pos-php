@@ -1,0 +1,21 @@
+{
+  "name": "umuttaymaz/paratika-php",
+  "description": "Paratika PHP Package",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Umut Taymaz",
+      "email": "umut@kreator.com.tr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Umuttaymaz\\ParatikaPhp\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.0",
+    "ext-curl": "*"
+  }
+}

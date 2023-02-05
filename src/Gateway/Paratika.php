@@ -26,8 +26,6 @@ class Paratika
         $environment = $this->account->getIsTestMode() ? 'test' : 'prod';
 
         $this->url = $config[$environment]['url'];
-
-        var_dump($this->url);
     }
 
     public function prepare($transactionType, Order $order, Card $card, Customer $customer): void

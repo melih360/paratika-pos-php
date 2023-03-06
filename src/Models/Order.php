@@ -64,7 +64,6 @@ class Order
             'MERCHANTPAYMENTID' => $this->order_id,
             'AMOUNT' => $this->amount,
             'CURRENCY' => $this->currency,
-            'INSTALLMENT' => $this->installment,
             'RETURNURL' => $this->returnURL,
             'ORDERITEMS' => urlencode(json_encode($this->orderItems))
         ];

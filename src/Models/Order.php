@@ -64,6 +64,20 @@ class Order
             'MERCHANTPAYMENTID' => $this->order_id,
             'AMOUNT' => $this->amount,
             'CURRENCY' => $this->currency,
+            'INSTALLMENT' => $this->installment,
+            'RETURNURL' => $this->returnURL,
+            'ORDERITEMS' => urlencode(json_encode($this->orderItems))
+        ];
+
+        return array_merge($this->billingInformation, $this->shippingInformation, $order);
+    }
+
+    public function getOrderRequestParametersForSessionToken(): array
+    {
+        $order = [
+            'MERCHANTPAYMENTID' => $this->order_id,
+            'AMOUNT' => $this->amount,
+            'CURRENCY' => $this->currency,
             'RETURNURL' => $this->returnURL,
             'ORDERITEMS' => urlencode(json_encode($this->orderItems))
         ];

@@ -95,7 +95,7 @@ class Paratika
 
         $accountParameters = $this->account->getMerchantRequestParameters();
         $customerParameters = $this->customer->getCustomerRequestParameters();
-        $orderParameters = $this->order->getOrderRequestParameters();
+        $orderParameters = $this->order->getOrderRequestParametersForSessionToken();
 
         $parameters = array_merge($parametersToken, $accountParameters, $customerParameters, $orderParameters);
 

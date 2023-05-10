@@ -11,7 +11,7 @@ class HttpClient
         curl_setopt($request, CURLOPT_URL, $url);
         curl_setopt($request, CURLOPT_HEADER, false);
         curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($request, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded', "Expect:"));
+        curl_setopt($request, CURLOPT_HTTPHEADER, array('content-type: application/x-www-form-urlencoded; charset=utf-8', "Expect:"));
         curl_setopt($request, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($request, CURLOPT_POSTFIELDS, $requestData);
 

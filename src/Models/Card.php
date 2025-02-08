@@ -2,8 +2,6 @@
 
 namespace Umuttaymaz\ParatikaPhp\Models;
 
-use DateTimeImmutable;
-
 class Card
 {
     public function __construct(
@@ -36,10 +34,11 @@ class Card
 
     private function getExpireDate($expireMonth, $expireYear): string
     {
-        $expireYear =  str_pad($expireYear, 2, '0', STR_PAD_LEFT);
-        $expireYear =  str_pad($expireYear, 4, '20', STR_PAD_LEFT);
+        $expireYear = str_pad($expireYear, 2, '0', STR_PAD_LEFT);
+        $expireYear = str_pad($expireYear, 4, '20', STR_PAD_LEFT);
         $expireMonth = str_pad($expireMonth, 2, '0', STR_PAD_LEFT);
-        return DateTimeImmutable::createFromFormat('Ymd', $expireYear.$expireMonth.'01')->format('m.Y');
+
+        return "{$expireMonth}.{$expireYear}";
     }
 
 }

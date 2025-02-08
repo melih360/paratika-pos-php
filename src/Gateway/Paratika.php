@@ -22,9 +22,7 @@ class Paratika
     )
     {
         $config = require __DIR__.'/../../config/paratika.php';
-
         $environment = $this->account->getIsTestMode() ? 'test' : 'prod';
-
         $this->url = $config[$environment]['url'];
     }
 

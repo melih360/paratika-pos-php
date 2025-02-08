@@ -6,10 +6,10 @@ class Customer
 {
     public function __construct(
         protected string  $user_id,
-        protected string  $user_name,
-        protected string  $user_email,
-        protected string  $user_ip,
-        protected string  $user_phone,
+        protected ?string  $user_name = null,
+        protected ?string  $user_email = null,
+        protected ?string  $user_ip = null,
+        protected ?string  $user_phone = null,
         protected ?string $user_birthday = null,
         protected ?string $user_agent = null
     )

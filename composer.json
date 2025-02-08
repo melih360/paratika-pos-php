@@ -1,12 +1,12 @@
 {
-  "name": "umuttaymaz/paratika-php",
-  "description": "Paratika PHP Package",
+  "name": "melih360/paratika-pos-php",
+  "description": "Paratika Pos PHP Package",
   "type": "library",
   "license": "MIT",
   "authors": [
     {
-      "name": "Umut Taymaz",
-      "email": "umut@kreator.com.tr"
+      "name": "Melih Bölükbaşı",
+      "email": "melihbolukbasi@gmail.com"
     }
   ],
   "autoload": {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Umuttaymaz\ParatikaPhp\Client;
+namespace melih360\ParatikaPosPhp\Client;
 
 class HttpClient
 {

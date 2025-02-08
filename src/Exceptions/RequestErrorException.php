@@ -1,6 +1,6 @@
 <?php
 
-namespace Umuttaymaz\ParatikaPhp\Exceptions;
+namespace melih360\ParatikaPosPhp\Exceptions;
 
 use Exception;
 use Throwable;

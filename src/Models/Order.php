@@ -1,6 +1,6 @@
 <?php
 
-namespace Umuttaymaz\ParatikaPhp\Models;
+namespace melih360\ParatikaPosPhp\Models;
 
 class Order
 {

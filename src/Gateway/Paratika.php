@@ -1,6 +1,6 @@
 <?php
 
-namespace Umuttaymaz\ParatikaPhp\Gateway;
+namespace melih360\ParatikaPosPhp\Gateway;
 
 use Umuttaymaz\ParatikaPhp\Client\HttpClient;
 use Umuttaymaz\ParatikaPhp\Exceptions\RequestErrorException;

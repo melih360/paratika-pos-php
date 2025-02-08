@@ -7,7 +7,7 @@ Bu paket ile amaçlanan Paratika ödeme yöntemi ile PHP üzerinden ödeme alın
 ## Installation
 
 ```bash
-composer require umuttaymaz/paratika-php
+composer require melih360/paratika-pos-php
 ```
 
 ## Örnek Ödeme Kodu
@@ -17,7 +17,7 @@ composer require umuttaymaz/paratika-php
 require './vendor/autoload.php';
 
 //API kullanıcı bilgileri girilir
-$account = new \Umuttaymaz\ParatikaPhp\Models\Account(
+$account = new Account(
     '10000000', //Merchant
     'apiuser@testmerchant.com', //MerchantUser
     'Pluto321`', //MerchantPassword
@@ -25,10 +25,10 @@ $account = new \Umuttaymaz\ParatikaPhp\Models\Account(
 );
 
 //Paratika sınıfı oluşturulur
-$paratika = new \Umuttaymaz\ParatikaPhp\Gateway\Paratika($account);
+$paratika = new Paratika($account);
 
 //Kredi Kartı sınıfı oluşturulur
-$card = new \Umuttaymaz\ParatikaPhp\Models\Card(
+$card = new Card(
     'Aydonat Aydınlar', //CardHolderName
     '4022774022774026', //CardNumber
     '2030', //CardExpirationYear
@@ -37,7 +37,7 @@ $card = new \Umuttaymaz\ParatikaPhp\Models\Card(
 );
 
 //Müşteri sınıfı oluşturulur
-$customer = new \Umuttaymaz\ParatikaPhp\Models\Customer(
+$customer = new Customer(
     uniqid('Cust-', true), //Customer ID
     'Aydonat Aydınlar', //Customer Name
     'mghUzjPn@email.com', //Customer Email
@@ -46,7 +46,7 @@ $customer = new \Umuttaymaz\ParatikaPhp\Models\Customer(
 );
 
 //Sipariş Sınıfı Oluşturulur
-$order = new \Umuttaymaz\ParatikaPhp\Models\Order(
+$order = new Order(
     uniqid('MPID-', true), //Order ID
     '1000', //Amount
     'TRY', //Currency

@@ -17,5 +17,12 @@
   "require": {
     "php": ">=8.0",
     "ext-curl": "*"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "melih360\\ParatikaPosPhp\\ParatikaPosServiceProvider"
+      ]
+    }
   }
 }

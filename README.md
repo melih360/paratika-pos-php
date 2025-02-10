@@ -1,7 +1,10 @@
 
-# Paratika PHP Package
+# Paratika Laravel Package
 
-Bu paket ile amaçlanan Paratika ödeme yöntemi ile PHP üzerinden ödeme alınmasını sağlamaktır.
+Bu paket Paratika ödeme yöntemi ile Laravel üzerinden ödeme alınmasını sağlamaktır.
+<br />
+Not: umuttaymaz/paratika-php reposundan forklanarak php paketinin Laravel ile daha uyumlu çalışması sağlanmıştır.
+
 
 
 ## Installation
@@ -10,22 +13,23 @@ Bu paket ile amaçlanan Paratika ödeme yöntemi ile PHP üzerinden ödeme alın
 composer require melih360/paratika-pos-php
 ```
 
-## Örnek Ödeme Kodu
+config dosyasını paylaşmak için
+```bash
+php artisan vendor:publish --tag=paratika-config
+```
 
+## Örnek env
+PARATIKA_MERCHANT_ID=
+<br/>PARATIKA_API_USER=
+<br/>PARATIKA_API_PASSWORD=
+<br/>PARATIKA_TEST_MODE=
+
+## Örnek Ödeme Kodu
 ```php
 <?php
-require './vendor/autoload.php';
-
-//API kullanıcı bilgileri girilir
-$account = new Account(
-    '10000000', //Merchant
-    'apiuser@testmerchant.com', //MerchantUser
-    'Pluto321`', //MerchantPassword
-    true // testMode
-);
 
 //Paratika sınıfı oluşturulur
-$paratika = new Paratika($account);
+$paratika = new Paratika();
 
 //Kredi Kartı sınıfı oluşturulur
 $card = new Card(

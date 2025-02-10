@@ -4,14 +4,17 @@ namespace melih360\ParatikaPosPhp\Models;
 
 class Account
 {
-    public function __construct(
-        protected string $merchant,
-        protected string $merchantUser,
-        protected string $merchantPassword,
-        protected bool  $testMode = false
-    )
-    {
+    protected string $merchant;
+    protected string $merchantUser;
+    protected string $merchantPassword;
+    protected bool $testMode;
 
+    public function __construct()
+    {
+        $this->merchant = config('paratika.merchant');
+        $this->merchantUser = config('paratika.merchantUser');
+        $this->merchantPassword = config('paratika.merchantPassword');
+        $this->testMode = config('paratika.testMode', false);
     }
 
     public function getIsTestMode(): bool

@@ -2,12 +2,12 @@
 
 namespace melih360\ParatikaPosPhp\Gateway;
 
-use Umuttaymaz\ParatikaPhp\Client\HttpClient;
-use Umuttaymaz\ParatikaPhp\Exceptions\RequestErrorException;
-use Umuttaymaz\ParatikaPhp\Models\Account;
-use Umuttaymaz\ParatikaPhp\Models\Card;
-use Umuttaymaz\ParatikaPhp\Models\Customer;
-use Umuttaymaz\ParatikaPhp\Models\Order;
+use melih360\ParatikaPosPhp\Client\HttpClient;
+use melih360\ParatikaPosPhp\Exceptions\RequestErrorException;
+use melih360\ParatikaPosPhp\Models\Account;
+use melih360\ParatikaPosPhp\Models\Card;
+use melih360\ParatikaPosPhp\Models\Customer;
+use melih360\ParatikaPosPhp\Models\Order;
 
 class Paratika
 {
@@ -18,7 +18,7 @@ class Paratika
     protected Customer $customer;
 
     public function __construct(
-        protected Account $account
+        protected Account $account = new Account()
     )
     {
         $config = require __DIR__.'/../../config/paratika.php';

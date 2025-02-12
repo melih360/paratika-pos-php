@@ -21,7 +21,7 @@ class Paratika
         protected Account $account = new Account()
     )
     {
-        $config = require __DIR__.'/../../config/paratika.php';
+        $config = config('paratika');
         $environment = $this->account->getIsTestMode() ? 'test' : 'prod';
         $this->url = $config[$environment]['url'];
     }
@@ -77,9 +77,18 @@ class Paratika
         $inputs['cvv'] = $cardParameters['CARDCVV'];
         $inputs['installmentCount'] = $orderParameters['INSTALLMENT'];
 
+        $paymentFileds = '<input type="hidden" name="cardOwner" value="'.$cardParameters['NAMEONCARD'].'"/>
+                                    <input type="hidden" name="pan" value="'.$cardParameters['CARDPAN'].'"/>
+                                    <input type="hidden" name="expiryMonth" value="'.$inputs['expiryMonth'].'"/>
+                                    <input type="hidden" name="expiryYear" value="'.$inputs['expiryYear'].'"/>
+                                    <input type="hidden" name="cvv" value="'.$inputs['cvv'].'"/>';
+        $paymentForm = '<form id="3dForm" action="' . $gateway . '" method="POST">' . $paymentFileds . '</form>';
+
         return [
             'gateway' => $gateway,
-            'inputs' => $inputs
+            'inputs' => $inputs,
+            'sessionToken' => $sessionToken,
+            'paymentForm' => $paymentForm
         ];
     }
 

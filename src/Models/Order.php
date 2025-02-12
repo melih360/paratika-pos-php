@@ -11,12 +11,12 @@ class Order
     public function __construct(
         protected string $order_id,
         protected string $amount,
-        protected string $currency,
-        protected string $installment,
-        protected string $returnURL
+        protected ?string $returnURL = null,
+        protected ?string $installment = '1',
+        protected ?string $currency = 'TRY'
     )
     {
-
+        $this->returnURL = config('paratika.returnUrl');
     }
 
     public function addBillingInformation($addressLine, $city, $country, $postalCode, $phone): void

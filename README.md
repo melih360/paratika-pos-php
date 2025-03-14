@@ -51,11 +51,10 @@ $customer = new Customer(
 
 //Sipariş Sınıfı Oluşturulur
 $order = new Order(
-    uniqid('MPID-', true), //Order ID
-    '1000', //Amount
-    'TRY', //Currency
-    '1', //Installment
-    'https://test.paratika.com.tr/merchant/index.jsp' //returnURL
+    uniqid('MPID-', true), //Order ID  -> required
+    '1000', //Amount -> required
+    'TRY', //Currency  -> default TRY
+    '1', //Installment -> default 1
 );
 
 //Sipariş İçerisine Ürünler Eklenir
@@ -64,7 +63,7 @@ $order->addOrderItem(
     'Galaxy S8+', //Name
     'The Samsung Galaxy S8 is Android smartphone produced by Samsung Electronics as part of the Samsung Galaxy S series.', //Description
     '1', //Quantity
-    '1000' //Amount
+    '1000' //Per amount
 );
 
 //Paratika sınıfı içerisinde Order, Card ve Customer sınıfları girilerek hazırlanır
@@ -74,6 +73,12 @@ $paratika->prepare('SALE', $order, $card, $customer);
 $formData = $paratika->get3DFormData();
 ```
 
+## İşlem Sorgulama
+
+```php
+$paratika = new Paratika();
+$paratika->queryTransaction(); // merchantPaymentId değeri optinal olarak sorgu yapılabilir
+```
 
 ## Yol Haritası
 

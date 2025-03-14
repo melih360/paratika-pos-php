@@ -128,4 +128,20 @@ class Paratika
         }
         return rtrim($post_string, "& ");
     }
+
+    public function queryTransaction($MERCHANTPAYMENTID = null) {
+        $parametersToken['ACTION'] = 'QUERYTRANSACTION';
+
+        if ($MERCHANTPAYMENTID) {
+            $parametersToken['MERCHANTPAYMENTID'] = $MERCHANTPAYMENTID;
+        }
+
+        $accountParameters = $this->account->getMerchantRequestParameters();
+        $parameters = array_merge($parametersToken, $accountParameters);
+        $requestData = $this->convertToRequestData($parameters);
+        $client = new HttpClient();
+        $postQueryTransaction = $client->makeRequest($this->url, $requestData);
+
+        return response()->json($postQueryTransaction ?? null);
+    }
 }
